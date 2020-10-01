@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/custom.css" type="text/css">
+
+    <title>Contact Tracing @Campus Proximus</title>
+</head>
+<body>
+
+<header>
+    <div class="titel">
+        <p>Contact Tracing @Campus Proximus</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <h1>Contact Overview</h1>
+    <div id="contacts"></div>
+    <div class="contacts-table">
+        <table style="width:100%">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date</th>
+                <th>Room</th>
+                <th>Email</th>
+                <th>GSM</th>
+            </tr>
+            <div th:each="contact:${contacts}">
+                <tr>
+                <td th:text="${contact.firstname}"></td>
+                <td th:text="${contact.lastname}"></td>
+                <td th:text="${contact.date}"></td>
+                <td th:text="${contact.room}"></td>
+                <td th:text="${contact.email}"></td>
+                <td th:text="${contact.gsm}"></td>
+                </tr>
+            </div>
+        </table>
+    </div>
+    <div class="contact-form">
+        <label>First Name</label><input type="text" id="firstname"/>
+        <label>Last Name</label><input type="text" id="lastname"/>
+        <label>Email</label><input type="text" id="email"/>
+        <label>GSM</label><input type="text" id="gsm"/>
+        <label>Date</label><input type="text" id="date"/>
+        <label>Room</label><input type="text" id="room"/>
+        <input type="button" id="contactbutton" value="Add Contact" />
+    </div>
+</main>
+<footer class="footer">
+    <div class="container">
+    </div>
+</footer>
+<script type="text/javascript" src="js/contacts.js"></script>
+</body>
+</html>
